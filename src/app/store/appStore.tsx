@@ -386,7 +386,8 @@ function savePersistedState(state: PersistedAppStateV1) {
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const persisted = loadPersistedState();
-  const [tasks, setTasks] = useState<Task[]>(() => (persisted.tasks && persisted.tasks.length ? persisted.tasks : INITIAL_TASKS));
+  // If tasks were persisted as an empty array, keep them empty (don't re-seed INITIAL_TASKS)
+  const [tasks, setTasks] = useState<Task[]>(() => (persisted.tasks ?? INITIAL_TASKS));
   const [sidebarCollapsed, setSidebarCollapsed] = useState(() => persisted.sidebarCollapsed ?? false);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [quickCaptureOpen, setQuickCaptureOpen] = useState(false);
