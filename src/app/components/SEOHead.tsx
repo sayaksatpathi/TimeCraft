@@ -115,7 +115,7 @@ export const SCHEMA_WEBAPP = {
     'Tag and label system',
     'Dark mode interface',
   ],
-  screenshot: `${BASE_URL}/screenshot.png`,
+  screenshot: `${BASE_URL}/icon-512.png`,
   softwareVersion: '2.0',
 };
 
