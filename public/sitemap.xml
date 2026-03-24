@@ -6,7 +6,7 @@
 
   <!-- Homepage / Dashboard -->
   <url>
-    <loc>https://flowtask.app/</loc>
+    <loc>https://time-craft-one.vercel.app/</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Tasks -->
   <url>
-    <loc>https://flowtask.app/tasks</loc>
+    <loc>https://time-craft-one.vercel.app/tasks</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
 
   <!-- Focus / Pomodoro Timer -->
   <url>
-    <loc>https://flowtask.app/focus</loc>
+    <loc>https://time-craft-one.vercel.app/focus</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
 
   <!-- Calendar -->
   <url>
-    <loc>https://flowtask.app/calendar</loc>
+    <loc>https://time-craft-one.vercel.app/calendar</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
 
   <!-- Analytics -->
   <url>
-    <loc>https://flowtask.app/analytics</loc>
+    <loc>https://time-craft-one.vercel.app/analytics</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -46,7 +46,7 @@
 
   <!-- AI Assistant -->
   <url>
-    <loc>https://flowtask.app/ai</loc>
+    <loc>https://time-craft-one.vercel.app/ai</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -54,7 +54,7 @@
 
   <!-- Settings -->
   <url>
-    <loc>https://flowtask.app/settings</loc>
+    <loc>https://time-craft-one.vercel.app/settings</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>

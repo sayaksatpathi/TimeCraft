@@ -26,7 +26,7 @@ export function Settings() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `flowtask-backup-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `timecraft-backup-${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -39,7 +39,7 @@ export function Settings() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `flowtask-tasks-${new Date().toISOString().split('T')[0]}.csv`;
+    a.download = `timecraft-tasks-${new Date().toISOString().split('T')[0]}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -58,8 +58,8 @@ export function Settings() {
   return (
     <div className="p-4 md:p-6 max-w-2xl mx-auto space-y-5">
       <SEOHead
-        title="Settings – Customize Your Productivity Workspace | FlowTask"
-        description="Customize your FlowTask experience. Update your profile name, manage notifications, export or import task data, and control your productivity workspace settings."
+        title="Settings – Customize Your Productivity Workspace"
+        description="Customize your TimeCraft experience. Update your profile name, manage notifications, export or import task data, and control your productivity workspace settings."
         keywords="productivity app settings, customize workspace, export tasks, notification settings"
         path="/settings"
         noIndex={false}
@@ -230,7 +230,7 @@ export function Settings() {
       >
         <Shield size={16} className="text-slate-500 mt-0.5 shrink-0" />
         <p className="text-slate-600 text-xs">
-          FlowTask is a local-first application. All your data is stored locally in your browser and never sent to any server. Your privacy is fully protected.
+          TimeCraft is a local-first application. All your data is stored locally in your browser and never sent to any server. Your privacy is fully protected.
         </p>
       </motion.div>
     </div>

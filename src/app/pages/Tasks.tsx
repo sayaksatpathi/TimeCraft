@@ -53,8 +53,8 @@ export function Tasks() {
   return (
     <div className="p-4 md:p-6 max-w-7xl mx-auto space-y-5">
       <SEOHead
-        title="Task Manager – List & Kanban Board | FlowTask"
-        description="Manage all your tasks in FlowTask's powerful list and Kanban board views. Filter by priority, sort by due date, and track progress with subtasks and tags."
+          title="Task Manager – List & Kanban Board"
+          description="Manage all your tasks in TimeCraft's list and Kanban board views. Sort by due date, track progress, and stay organized across projects."
         keywords="task manager, kanban board, to-do list, task tracking, priority tasks, task planner, subtasks"
         path="/tasks"
         jsonLd={SCHEMA_BREADCRUMB([{ name: 'Home', path: '/' }, { name: 'Tasks', path: '/tasks' }])}

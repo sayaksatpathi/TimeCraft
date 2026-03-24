@@ -81,8 +81,8 @@ export function Dashboard() {
   return (
     <div className="p-4 md:p-6 max-w-7xl mx-auto space-y-5 md:space-y-6">
       <SEOHead
-        title="Dashboard – Your Productivity Overview | FlowTask"
-        description="View today's tasks, focus time, XP progress, streaks, and weekly performance at a glance. FlowTask's smart dashboard keeps you on track every day."
+        title="Dashboard – Your Productivity Overview"
+        description="View today's tasks, focus time, XP progress, streaks, and weekly performance at a glance. TimeCraft's dashboard keeps you on track every day."
         path="/"
         jsonLd={[SCHEMA_FAQ, SCHEMA_BREADCRUMB([{ name: 'Home', path: '/' }])]}
       />

@@ -89,8 +89,8 @@ export function AIAssistant() {
   return (
     <div className="flex flex-col h-full max-h-screen">
       <SEOHead
-        title="AI Productivity Assistant – Smart Task Planning & Scheduling | FlowTask"
-        description="Chat with FlowTask's built-in AI assistant to plan your day, break down projects, prioritize tasks, reschedule overdue work, and get personalized productivity advice."
+        title="AI Productivity Assistant – Smart Task Planning & Scheduling"
+        description="Chat with TimeCraft's built-in AI assistant to plan your day, break down projects, prioritize tasks, reschedule overdue work, and get personalized productivity advice."
         keywords="AI productivity assistant, AI task planner, smart scheduler, AI to-do, productivity AI, chatbot productivity, task prioritization AI"
         path="/ai"
         jsonLd={SCHEMA_BREADCRUMB([{ name: 'Home', path: '/' }, { name: 'AI Assistant', path: '/ai' }])}
@@ -103,7 +103,7 @@ export function AIAssistant() {
           </div>
           <div>
             <h1 className="text-white font-bold">AI Assistant</h1>
-            <p className="text-slate-500 text-xs">Powered by FlowTask AI</p>
+            <p className="text-slate-500 text-xs">Powered by TimeCraft AI</p>
           </div>
           <div className="ml-auto flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

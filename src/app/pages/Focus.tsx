@@ -95,7 +95,7 @@ export function Focus() {
   useEffect(() => {
     if (isRunning) {
       const config = MODE_CONFIG[mode];
-      document.title = `${formatTime(timeLeft)} · ${config.label} – FlowTask`;
+      document.title = `${formatTime(timeLeft)} · ${config.label} – TimeCraft`;
     } else {
       document.title = originalTitleRef.current;
     }
@@ -167,8 +167,8 @@ export function Focus() {
         className={`min-h-full flex flex-col items-center justify-center p-4 md:p-6 relative ${zenMode ? 'bg-slate-950' : 'pt-16 md:pt-20'}`}
       >
         <SEOHead
-          title="Pomodoro Focus Timer – Customizable Work & Break Intervals | FlowTask"
-          description="Use FlowTask's free Pomodoro focus timer with fully customizable focus sessions (1–120 min), short breaks, and long breaks. Features Zen Mode, task linking, and session tracking."
+          title="Pomodoro Focus Timer – Customizable Work & Break Intervals"
+          description="Use TimeCraft's Pomodoro focus timer with fully customizable focus sessions (1–120 min), short breaks, and long breaks. Features Zen Mode, task linking, and session tracking."
           keywords="pomodoro timer, focus timer, work timer, pomodoro technique, focus mode, productivity timer, customizable pomodoro, zen mode"
           path="/focus"
           jsonLd={[SCHEMA_HOW_TO_POMODORO, SCHEMA_BREADCRUMB([{ name: 'Home', path: '/' }, { name: 'Focus', path: '/focus' }])]}

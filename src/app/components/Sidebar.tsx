@@ -48,8 +48,8 @@ export function Sidebar() {
               transition={{ duration: 0.2 }}
               className="overflow-hidden flex-1"
             >
-              <span className="text-white font-semibold text-sm tracking-wide">FlowTask</span>
-              <p className="text-slate-500 text-xs">AI Productivity</p>
+              <span className="text-white font-semibold text-sm tracking-wide">TimeCraft</span>
+              <p className="text-slate-500 text-xs">Productivity</p>
             </motion.div>
           )}
         </AnimatePresence>

@@ -72,8 +72,8 @@ export function Analytics() {
   return (
     <div className="p-4 md:p-6 max-w-7xl mx-auto space-y-5 md:space-y-6">
       <SEOHead
-        title="Productivity Analytics – Charts, XP & Achievements | FlowTask"
-        description="Visualize your productivity with FlowTask's analytics. Track task completion rates, weekly trends, focus time, XP levels, streaks, and badge achievements."
+        title="Productivity Analytics – Charts, XP & Achievements"
+        description="Visualize your productivity with TimeCraft's analytics. Track task completion rates, weekly trends, focus time, XP levels, streaks, and badge achievements."
         keywords="productivity analytics, task statistics, productivity charts, focus time tracker, XP system, productivity gamification, achievement badges"
         path="/analytics"
         jsonLd={SCHEMA_BREADCRUMB([{ name: 'Home', path: '/' }, { name: 'Analytics', path: '/analytics' }])}

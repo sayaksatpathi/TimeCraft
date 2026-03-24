@@ -84,8 +84,8 @@ export function CalendarView() {
   return (
     <div className="p-4 md:p-6 max-w-7xl mx-auto space-y-4 md:space-y-5">
       <SEOHead
-        title="Task Calendar – Month & Week View Planner | FlowTask"
-        description="Plan and visualize your tasks in FlowTask's interactive calendar. Switch between month and week views, see tasks by due date, and click any task to view or edit details."
+        title="Task Calendar – Month & Week View Planner"
+        description="Plan and visualize your tasks in TimeCraft's interactive calendar. Switch between month and week views, see tasks by due date, and open tasks to view or edit details."
         keywords="task calendar, productivity calendar, task planner, weekly planner, monthly planner, due date tracker, schedule tasks"
         path="/calendar"
         jsonLd={SCHEMA_BREADCRUMB([{ name: 'Home', path: '/' }, { name: 'Calendar', path: '/calendar' }])}

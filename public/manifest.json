@@ -1,7 +1,7 @@
 {
-  "name": "FlowTask – AI Productivity App",
-  "short_name": "FlowTask",
-  "description": "Free AI-powered productivity app with task management, Pomodoro timer, Kanban boards, calendar, analytics, and an AI assistant — all in one place.",
+  "name": "TimeCraft – Productivity App",
+  "short_name": "TimeCraft",
+  "description": "Local-first productivity app with task management, Pomodoro focus timer, Kanban boards, calendar, analytics, and an AI assistant — all in one place.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
@@ -40,7 +40,7 @@
       "src": "/screenshot.png",
       "sizes": "1280x720",
       "type": "image/png",
-      "label": "FlowTask Dashboard"
+      "label": "TimeCraft Dashboard"
     }
   ],
   "shortcuts": [
