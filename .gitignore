@@ -1,0 +1,16 @@
+node_modules
+.dist
+# build output
+/dist
+.vite
+coverage
+
+# env
+.env
+.env.*
+
+# logs
+*.log
+
+# OS
+.DS_Store

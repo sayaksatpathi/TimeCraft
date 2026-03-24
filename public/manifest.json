@@ -1,0 +1,69 @@
+{
+  "name": "FlowTask – AI Productivity App",
+  "short_name": "FlowTask",
+  "description": "Free AI-powered productivity app with task management, Pomodoro timer, Kanban boards, calendar, analytics, and an AI assistant — all in one place.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["productivity", "utilities", "business"],
+  "keywords": [
+    "productivity",
+    "task manager",
+    "pomodoro",
+    "focus timer",
+    "kanban",
+    "AI assistant",
+    "calendar",
+    "analytics"
+  ],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "FlowTask Dashboard"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Home",
+      "description": "Open your productivity dashboard",
+      "url": "/",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Focus Timer",
+      "short_name": "Focus",
+      "description": "Start a Pomodoro focus session",
+      "url": "/focus",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Tasks",
+      "short_name": "Tasks",
+      "description": "View and manage all tasks",
+      "url": "/tasks",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
