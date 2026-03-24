@@ -297,14 +297,80 @@ type PersistedAppStateV1 = {
 
 const STORAGE_KEY = 'timecraft.appState.v1';
 
+function isTaskStatus(v: unknown): v is TaskStatus {
+  return v === 'todo' || v === 'in-progress' || v === 'done';
+}
+
+function normalizeTask(raw: any): Task | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const id = typeof raw.id === 'string' ? raw.id : null;
+  if (!id) return null;
+
+  const title = typeof raw.title === 'string' ? raw.title : 'Untitled Task';
+  const description = typeof raw.description === 'string' ? raw.description : '';
+  const completed = typeof raw.completed === 'boolean' ? raw.completed : false;
+  const priority: Priority = raw.priority === 'high' || raw.priority === 'medium' || raw.priority === 'low' ? raw.priority : 'medium';
+  const dueDate = typeof raw.dueDate === 'string' ? raw.dueDate : null;
+  const dueTime = typeof raw.dueTime === 'string' ? raw.dueTime : null;
+  const tags = Array.isArray(raw.tags) ? raw.tags.filter((t: any) => typeof t === 'string') : [];
+  const project = typeof raw.project === 'string' ? raw.project : null;
+  const createdAt = typeof raw.createdAt === 'string' ? raw.createdAt : localDateStr();
+  const timeLogged = typeof raw.timeLogged === 'number' && Number.isFinite(raw.timeLogged) ? raw.timeLogged : 0;
+
+  const subtasks: Subtask[] = Array.isArray(raw.subtasks)
+    ? raw.subtasks
+        .filter((s: any) => s && typeof s === 'object')
+        .map((s: any) => ({
+          id: typeof s.id === 'string' ? s.id : Date.now().toString(),
+          title: typeof s.title === 'string' ? s.title : 'Untitled',
+          completed: typeof s.completed === 'boolean' ? s.completed : false,
+        }))
+    : [];
+
+  const status: TaskStatus = isTaskStatus(raw.status)
+    ? raw.status
+    : (completed ? 'done' : 'todo');
+
+  return {
+    id,
+    title,
+    description,
+    completed,
+    priority,
+    dueDate,
+    dueTime,
+    tags,
+    subtasks,
+    project,
+    status,
+    createdAt,
+    timeLogged,
+  };
+}
+
+function normalizePersistedState(parsed: any): Partial<PersistedAppStateV1> {
+  if (!parsed || typeof parsed !== 'object') return {};
+
+  const tasks = Array.isArray(parsed.tasks)
+    ? (parsed.tasks.map(normalizeTask).filter(Boolean) as Task[])
+    : undefined;
+
+  return {
+    tasks,
+    sidebarCollapsed: typeof parsed.sidebarCollapsed === 'boolean' ? parsed.sidebarCollapsed : undefined,
+    userName: typeof parsed.userName === 'string' ? parsed.userName : undefined,
+    xp: typeof parsed.xp === 'number' && Number.isFinite(parsed.xp) ? parsed.xp : undefined,
+    focusTime: typeof parsed.focusTime === 'number' && Number.isFinite(parsed.focusTime) ? parsed.focusTime : undefined,
+  };
+}
+
 function loadPersistedState(): Partial<PersistedAppStateV1> {
   if (typeof window === 'undefined') return {};
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return {};
-    const parsed = JSON.parse(raw) as Partial<PersistedAppStateV1>;
-    if (parsed && Array.isArray(parsed.tasks)) return parsed;
-    return {};
+    const parsed = JSON.parse(raw);
+    return normalizePersistedState(parsed);
   } catch {
     return {};
   }
