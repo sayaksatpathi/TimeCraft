@@ -286,24 +286,67 @@ const INITIAL_AI_MESSAGES: AIMessage[] = [
 
 const AppContext = createContext<AppContextType | null>(null);
 
+type PersistedAppStateV1 = {
+  tasks: Task[];
+  sidebarCollapsed: boolean;
+  userName: string;
+  xp: number;
+  focusTime: number;
+};
+
+const STORAGE_KEY = 'timecraft.appState.v1';
+
+function loadPersistedState(): Partial<PersistedAppStateV1> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw) as Partial<PersistedAppStateV1>;
+    if (parsed && Array.isArray(parsed.tasks)) return parsed;
+    return {};
+  } catch {
+    return {};
+  }
+}
+
+function savePersistedState(state: PersistedAppStateV1) {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch {
+    // Ignore storage errors (private mode, quota, etc.)
+  }
+}
+
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [tasks, setTasks] = useState<Task[]>(INITIAL_TASKS);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const persisted = loadPersistedState();
+  const [tasks, setTasks] = useState<Task[]>(() => (persisted.tasks && persisted.tasks.length ? persisted.tasks : INITIAL_TASKS));
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => persisted.sidebarCollapsed ?? false);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [quickCaptureOpen, setQuickCaptureOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [taskDetailOpen, setTaskDetailOpen] = useState(false);
-  const [userName, setUserName] = useState('Alex');
-  const [xp, setXp] = useState(2750);
+  const [userName, setUserName] = useState(() => persisted.userName ?? 'Alex');
+  const [xp, setXp] = useState(() => persisted.xp ?? 2750);
   const [level] = useState(12);
   const [streak] = useState(7);
-  const [focusTime, setFocusTime] = useState(90);
+  const [focusTime, setFocusTime] = useState(() => persisted.focusTime ?? 90);
   const [aiMessages, setAIMessages] = useState<AIMessage[]>(INITIAL_AI_MESSAGES);
 
   useEffect(() => {
     document.documentElement.classList.add('dark');
     document.body.style.fontFamily = "'Inter', sans-serif";
   }, []);
+
+  // Persist key app state across refreshes
+  useEffect(() => {
+    savePersistedState({
+      tasks,
+      sidebarCollapsed,
+      userName,
+      xp,
+      focusTime,
+    });
+  }, [tasks, sidebarCollapsed, userName, xp, focusTime]);
 
   // Keyboard shortcut for quick capture
   useEffect(() => {
