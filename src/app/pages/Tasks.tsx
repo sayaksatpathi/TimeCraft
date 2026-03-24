@@ -18,7 +18,7 @@ const statusColumns: { key: TaskStatus; label: string; color: string; bg: string
 ];
 
 export function Tasks() {
-  const { tasks, setQuickCaptureOpen, updateTask, setSelectedTask, setTaskDetailOpen } = useApp();
+  const { tasks, setQuickCaptureOpen, updateTask, setSelectedTask, setTaskDetailOpen, clearCompletedTasks } = useApp();
   const [view, setView] = useState<'list' | 'board'>('list');
   const [filterPriority, setFilterPriority] = useState<Priority | 'all'>('all');
   const [filterStatus, setFilterStatus] = useState<TaskStatus | 'all'>('all');
@@ -123,6 +123,16 @@ export function Tasks() {
             <LayoutGrid size={16} />
           </button>
         </div>
+
+        {stats.completed > 0 && (
+          <button
+            onClick={clearCompletedTasks}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm bg-slate-800/60 border border-slate-700/40 text-slate-400 hover:text-slate-200 transition-all"
+            title="Remove all completed tasks"
+          >
+            Clear completed
+          </button>
+        )}
       </div>
 
       {/* Filter panel */}

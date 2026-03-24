@@ -52,6 +52,7 @@ interface AppContextType {
   deleteTask: (id: string) => void;
   toggleTask: (id: string) => void;
   toggleSubtask: (taskId: string, subtaskId: string) => void;
+  clearCompletedTasks: () => void;
   clearTasks: () => void;
   toggleSidebar: () => void;
   setMobileSidebarOpen: (open: boolean) => void;
@@ -432,6 +433,16 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
+  const clearCompletedTasks = useCallback(() => {
+    const completedCount = tasks.filter(t => t.completed).length;
+    if (completedCount === 0) return;
+
+    setTasks(prev => prev.filter(t => !t.completed));
+    setSelectedTask(prev => (prev?.completed ? null : prev));
+    setTaskDetailOpen(false);
+    toast('Completed tasks cleared', { description: `${completedCount} removed`, duration: 2000 });
+  }, [tasks]);
+
   const clearTasks = useCallback(() => {
     setTasks([]);
     setTaskDetailOpen(false);
@@ -456,7 +467,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     <AppContext.Provider value={{
       tasks, sidebarCollapsed, mobileSidebarOpen, quickCaptureOpen, selectedTask,
       taskDetailOpen, userName, xp, level, streak, focusTime, aiMessages,
-      addTask, updateTask, deleteTask, toggleTask, toggleSubtask, clearTasks,
+      addTask, updateTask, deleteTask, toggleTask, toggleSubtask, clearCompletedTasks, clearTasks,
       toggleSidebar, setMobileSidebarOpen, setQuickCaptureOpen, setSelectedTask,
       setTaskDetailOpen, addAIMessage, addFocusTime, setUserName,
     }}>
